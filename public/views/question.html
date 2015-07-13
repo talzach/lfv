@@ -1,0 +1,12 @@
+<div class="jumbotron text-center" ng-controller="QuestionController">
+    <h1>Nerds and Proud</h1>
+
+    <p>{{ tagline }}</p>
+    <button class="btn btn-primary" ng-click="getQuestions()">Get Question</button>
+
+    <ul>
+        <li ng-repeat="x in questions">
+            {{ x.name }}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,1 @@
+angular.module('locationForVacationApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'QuestionCtrl', 'QuestionService']);
