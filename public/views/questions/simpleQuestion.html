@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-controller="QuestionController">
+    <h1>{{ question.text }}</h1>
+
+    <div ng-repeat="x in question.possibleAnswers">
+        <input type="radio"/>
+    </div>
+</div>
+</body>
+</html>

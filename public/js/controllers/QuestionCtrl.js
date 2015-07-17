@@ -2,7 +2,7 @@ angular.module('QuestionCtrl', []).controller('QuestionController', function ($s
     $scope.questions = '';
     $scope.getQuestions = function () {
         Question.getAsync().then(function (data) {
-            $scope.questions = data;
+            $scope.question = data;
         });
     };
 });
