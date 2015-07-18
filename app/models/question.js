@@ -1,13 +1,15 @@
-var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
-var PossibleAnswer = require('PossibleAnswer');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    autoIncrement = require('mongoose-auto-increment');
+var PossibleAnswerModel = require('./possibleAnswer');
 
-var questionSchema = mongoose.model('Question', {
-    number : Number,
-    text : String,
-    possibleAnswers : [PossibleAnswer],
-    type : String
+var questionSchema = new Schema({
+    number: Schema.ObjectId,
+    text: String,
+    possibleAnswers: [PossibleAnswerModel],
+    type: { type : String, default : 'Yesss' }
 });
 
-questionSchema.plugin(autoIncrement.plugin, { model: 'Question', field: 'number' });
-module.exports = questionSchema;
+questionSchema.plugin(autoIncrement.plugin, {model: 'Question', field: 'number'});
+module.exports = mongoose.model('Question', questionSchema);
+

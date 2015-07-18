@@ -1,10 +1,11 @@
-var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    autoIncrement = require('mongoose-auto-increment');
 
-var possibleAnswerSchema = mongoose.model('PossibleAnswer', {
-    number : Number,
-    text : String
+var possibleAnswerSchema = new Schema({
+    number: Schema.ObjectId,
+    text: String
 });
 
-possibleAnswerSchema.plugin(autoIncrement.plugin, { model: 'PossibleAnswer', field: 'number' });
-module.exports = possibleAnswerSchema;
+possibleAnswerSchema.plugin(autoIncrement.plugin, {model: 'PossibleAnswer', field: 'number'});
+module.exports = mongoose.model('PossibleAnswer', possibleAnswerSchema);
