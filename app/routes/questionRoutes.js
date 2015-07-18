@@ -1,8 +1,8 @@
 var questionModel = require('./../models/question');
 
 module.exports = function(app) {
-    app.get('/api/questions/1', function(req, res) {
-        questionModel.find({ 'number' : 1 }, function(err, question)
+    app.get('/api/questions', function(req, res) {
+        questionModel.find({ 'number' : 10 }, function(err, question)
         {
             if(err)
             {
@@ -13,7 +13,11 @@ module.exports = function(app) {
         });
     });
 
-    //var question = new questionModel({ text : 'worked! 1' });
+    //var question = new questionModel({
+    //    text : 'worked! 1',
+    //    possibleAnswers: [{text : 'possible!!!'}, {text : 'every thing'}]
+    //});
+    //
     //question.save(function(err) {
     //    if (err) {
     //        return err;

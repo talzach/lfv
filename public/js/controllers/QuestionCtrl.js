@@ -1,8 +1,5 @@
-angular.module('QuestionCtrl', []).controller('QuestionController', function ($scope, Question) {
-    $scope.questions = '';
-    $scope.getQuestions = function () {
-        Question.getAsync().then(function (data) {
-            $scope.question = data;
-        });
-    };
+angular.module('QuestionCtrl', []).controller('QuestionController', function ($scope, QuestionService) {
+    QuestionService.getAsync().then(function (data) {
+        $scope.question = data;
+    });
 });

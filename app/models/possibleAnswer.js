@@ -8,4 +8,7 @@ var possibleAnswerSchema = new Schema({
 });
 
 possibleAnswerSchema.plugin(autoIncrement.plugin, {model: 'PossibleAnswer', field: 'number'});
-module.exports = mongoose.model('PossibleAnswer', possibleAnswerSchema);
+module.exports = {
+    model : mongoose.model('PossibleAnswer', possibleAnswerSchema),
+    schema : possibleAnswerSchema
+};

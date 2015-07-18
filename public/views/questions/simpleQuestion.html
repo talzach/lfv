@@ -5,11 +5,11 @@
     <title></title>
 </head>
 <body>
-<div ng-controller="QuestionController">
+<div>
     <h1>{{ question.text }}</h1>
 
     <div ng-repeat="x in question.possibleAnswers">
-        <input type="radio"/>
+        <input type="radio" ng-bind="text"/>
     </div>
 </div>
 </body>
