@@ -5,11 +5,15 @@
     <title></title>
 </head>
 <body>
-<div>
+<div class="container">
     <h1>{{ question.text }}</h1>
 
     <div ng-repeat="x in question.possibleAnswers">
-        <input type="radio" ng-bind="text"/>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optradio">{{ x.text }}
+            </label>
+        </div>
     </div>
 </div>
 </body>

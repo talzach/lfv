@@ -1,20 +1,17 @@
-var questionModel = require('./../models/question');
+var questions = require('./questions');
 
 module.exports = function(app) {
 
-    app.get('/api/questions/10', function(req, res) {
-        questionModel.find({ 'number' : 10 }, function(err, question)
-        {
-            if(err)
-            {
-                res.send(err);
-            }
+    // Question routes
+    app.get('/api/questions', questions.getAll);
+    app.post('/api/questions', questions.create);
+    app.get('/api/questions/:number', questions.get);
+    app.put('/api/questions/:number', questions.update);
+    app.delete('/api/questions/:number', questions.remove);
 
-            res.json(question);
-        });
-    });
-
+    // UI route
     app.get('*', function(req, res) {
         res.sendfile('./public/views/index.html');
     });
+
 };
