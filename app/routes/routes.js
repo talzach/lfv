@@ -1,6 +1,8 @@
-var questions = require('./questions');
+var questions = require('./questions'),
+    path = require('path'),
+    appRoot = path.dirname(require.main.filename);
 
-module.exports = function(app) {
+module.exports = function (app) {
 
     // Question routes
     app.get('/api/questions', questions.getAll);
@@ -10,8 +12,7 @@ module.exports = function(app) {
     app.delete('/api/questions/:number', questions.remove);
 
     // UI route
-    app.get('*', function(req, res) {
-        res.sendfile('./public/views/index.html');
+    app.get('*', function (req, res) {
+        res.sendFile(appRoot + '/public/views/index.html');
     });
-
 };
