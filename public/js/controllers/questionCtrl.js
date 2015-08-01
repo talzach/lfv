@@ -1,5 +1,5 @@
-angular.module('QuestionCtrl', []).controller('QuestionController', function ($scope, QuestionService) {
-    QuestionService.getAsync().then(function (data) {
+angular.module('questionCtrl', []).controller('questionController', function ($scope, questionService) {
+    questionService.getAsync().then(function (data) {
         $scope.question = data;
     });
 });
