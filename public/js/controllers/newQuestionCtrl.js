@@ -1,4 +1,4 @@
-angular.module('adminCtrl', []).controller('adminController', function ($scope, questionService, $timeout) {
+angular.module('newQuestionCtrl', []).controller('newQuestionController', function ($scope, questionService, $timeout) {
     $scope.newQuestion = {
         number : NaN,
         text : "",
@@ -19,16 +19,12 @@ angular.module('adminCtrl', []).controller('adminController', function ($scope, 
     };
 
     $scope.save = function(){
-        $scope.IsSaved = true;
-        $timeout($scope.finishedSaved, 3000);
-        //
-        //questionService.saveAsync().then(function(){
-        //    if (isSaved) {
-        //        $scope.IsSaved = true;
-        //        $timeout(function () {
-        //            $scope.IsSaved = false;
-        //        }, 10000);
-        //    }
-        //});
+
+        questionService.saveAsync().then(function(data){
+            if (data != null) {
+                $scope.IsSaved = isSaved;
+                $timeout($scope.finishedSaved, 3000);
+            }
+        });
     };
 });

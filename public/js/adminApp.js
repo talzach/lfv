@@ -1,0 +1,1 @@
+angular.module('adminApp', ['ngRoute', 'ngResource', 'adminAppRoutes', 'newQuestionCtrl', 'questionService']);

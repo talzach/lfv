@@ -10,11 +10,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/question', {
             templateUrl: 'views/questions/simpleQuestion.html',
             controller: 'questionController'
-        })
-
-        .when('/admin', {
-            templateUrl: 'views/admin.html',
-            controller: 'adminController'
         });
 
 

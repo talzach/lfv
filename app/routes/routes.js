@@ -11,6 +11,11 @@ module.exports = function (app) {
     app.put('/api/questions/:number', questions.update);
     app.delete('/api/questions/:number', questions.remove);
 
+    // Admin UI route
+    app.get('/admin*', function (req, res) {
+        res.sendFile(appRoot + '/public/views/admin.html');
+    });
+
     // UI route
     app.get('*', function (req, res) {
         res.sendFile(appRoot + '/public/views/index.html');
