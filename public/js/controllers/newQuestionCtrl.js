@@ -19,10 +19,9 @@ angular.module('newQuestionCtrl', []).controller('newQuestionController', functi
     };
 
     $scope.save = function(){
-
-        questionService.saveAsync().then(function(data){
+        questionService.save($scope.newQuestion, function(data){
             if (data != null) {
-                $scope.IsSaved = isSaved;
+                $scope.IsSaved = true;
                 $timeout($scope.finishedSaved, 3000);
             }
         });

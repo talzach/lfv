@@ -31,8 +31,7 @@ exports.getAll = function (req, res) {
 };
 
 exports.create = function (req, res) {
-
-    questionModel(req.body.question).save(function(err){
+    questionModel(req.body).save(function(err){
         console.log("Item added");
         res.send(true);
     });
