@@ -2,16 +2,21 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
     $routeProvider
 
-        // home page
         .when('/', {
             templateUrl: 'views/home.html',
-            controller: 'MainController'
+            controller: 'mainController'
         })
 
         .when('/question', {
             templateUrl: 'views/questions/simpleQuestion.html',
-            controller: 'QuestionController'
+            controller: 'questionController'
+        })
+
+        .when('/admin', {
+            templateUrl: 'views/admin.html',
+            controller: 'adminController'
         });
+
 
     $locationProvider.html5Mode(true);
 

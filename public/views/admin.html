@@ -41,7 +41,16 @@
                 </div>
             </nav>
         </td>
+
         <td style="position: absolute; left: 25%;">
+            <div class="btn-group"> <a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#">Select a question type <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Simple</a></li>
+                    <li><a href="#">YesNo</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star"></span> Other</a></li>
+                </ul>
+            </div>
             <div class="alert alert-success" role="alert" ng-show="IsSaved">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="finishedSaved()">&times;</a>
                 <strong>Success!</strong> Question Saved.
