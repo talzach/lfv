@@ -17,13 +17,12 @@
         </div>
     </div>
 
-    <hr>
     <button class="btn btn-success" ng-click="newQuestion()">
         <span class="glyphicon glyphicon-plus-sign"></span>  Create New Question
     </button>
-    <hr>
 
-    <h3>Questions</h3>
+    <br>
+    <br>
 
     <table class="table table-condensed table-striped  table-hover" style="width: auto !important;">
         <thead>
@@ -39,12 +38,12 @@
             <td>{{ question.number }}</td>
             <td>{{ question.text }}</td>
             <td>
-                <button class="btn" ng-click="editQuestion(question.number)">
+                <button class="btn" ng-click="editQuestion(question)">
                     <span class="glyphicon glyphicon-pencil"></span>  Edit
                 </button>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="deleteQuestion(question.number)">
+                <button class="btn btn-danger" ng-click="deleteQuestion(question, $index)">
                     <span class="glyphicon glyphicon-trash"></span>  Delete
                 </button>
             </td>
