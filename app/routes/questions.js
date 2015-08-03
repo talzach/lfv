@@ -31,9 +31,16 @@ exports.getAll = function (req, res) {
 };
 
 exports.create = function (req, res) {
-    questionModel(req.body).save(function(err){
-        console.log("Item added");
-        res.send(true);
+    questionModel(req.body).save(function(err, question) {
+        if (!err) {
+            console.log("Item added");
+            res.send(question);
+        }
+        else
+        {
+            console.log(err);
+            res.status(400).send(err);
+        }
     });
 };
 

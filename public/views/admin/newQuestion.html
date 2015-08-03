@@ -8,7 +8,16 @@
 <div class="container-fluid">
     <div class="alert alert-success" role="alert" ng-show="IsSaved">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="finishedSaved()">&times;</a>
-        <strong>Success!</strong> Question Saved.
+        <strong>Success!</strong> Question Saved with number {{ newQuestion.number }}.
+    </div>
+    <div class="alert alert-danger" role="alert" ng-show="IsError">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="saveFailed()">&times;</a>
+        <strong>Failed!</strong> question not saved.
+        <br>
+        Errors:
+        <div ng-repeat="error in serverErrors">
+            {{ error.message }}
+        </div>
     </div>
 
     <div class="container">
