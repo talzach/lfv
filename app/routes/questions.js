@@ -21,12 +21,12 @@ exports.update = function (req, res) {
 };
 
 exports.getAll = function (req, res) {
-    questionModel.find(function (err, question) {
+    questionModel.find(function (err, questions) {
         if (err) {
-            res.send(err);
+            res.status(400).send(err);
         }
 
-        res.json(question[0]);
+        res.json(questions);
     });
 };
 

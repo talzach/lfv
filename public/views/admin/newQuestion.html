@@ -7,11 +7,11 @@
 <body>
 <div class="container-fluid">
     <div class="alert alert-success" role="alert" ng-show="IsSaved">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="finishedSaved()">&times;</a>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="removeSaveSucceed()">&times;</a>
         <strong>Success!</strong> Question Saved with number {{ newQuestion.number }}.
     </div>
     <div class="alert alert-danger" role="alert" ng-show="IsError">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="saveFailed()">&times;</a>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="removeSaveFailed()">&times;</a>
         <strong>Failed!</strong> question not saved.
         <br>
         Errors:
@@ -41,7 +41,9 @@
                 <label for="question">Question:</label>
                 <br>
                 <input type="text" ng-model="newQuestion.text" class="form-control" id="question">
-                <button ng-click="addAnswer()" class="btn btn-success" id="addButton">+</button>
+                <a ng-click="addAnswer()" class="btn btn-success" ng-click="removeAnswer()" id="addButton">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                </a>
             </div>
 
             <div ng-repeat="answer in newQuestion.possibleAnswers" class="form-group">
@@ -49,7 +51,7 @@
                 <br>
                 <input type="text" class="form-control" ng-model="answer.text" id="answer">
                 <a class="btn btn-danger remove_fields" ng-click="removeAnswer()" ng-show="$last" id="removeButton">
-                    <i class="icon-trash icon-white">-</i>
+                    <i class="glyphicon glyphicon-minus-sign"></i>
                 </a>
             </div>
             <input type="submit" value="Save" ng-click="save()" class="btn btn-info btn-lg">

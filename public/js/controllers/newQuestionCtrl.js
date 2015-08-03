@@ -14,11 +14,11 @@ angular.module('newQuestionCtrl', []).controller('newQuestionController', functi
         $scope.newQuestion.possibleAnswers.splice(lastItem);
     };
 
-    $scope.finishedSaved = function () {
+    $scope.removeSaveSucceed = function () {
         $scope.IsSaved = false;
     };
 
-    $scope.saveFailed = function () {
+    $scope.removeSaveFailed = function () {
         $scope.IsError = false;
     };
 
@@ -27,7 +27,7 @@ angular.module('newQuestionCtrl', []).controller('newQuestionController', functi
             function (data, headers) {
                 if (data != null) {
                     $scope.IsSaved = true;
-                    $timeout($scope.finishedSaved, 3000);
+                    $timeout($scope.removeSaveSucceed, 3000);
                 }
             },
             function (response) {
@@ -36,14 +36,4 @@ angular.module('newQuestionCtrl', []).controller('newQuestionController', functi
             }
         );
     };
-
-    //$scope.save = function () {
-    //    questionService.save($scope.newQuestion).$promise.then(function (data) {
-    //        $scope.IsSaved = true;
-    //        $timeout($scope.finishedSaved, 3000);
-    //    }, function (error) {
-    //        $scope.IsError = true;
-    //        $timeout($scope.saveFailed, 3000);
-    //    });
-    //};
 });
