@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <button class="btn btn-success" ng-click="newQuestion()">
+    <button class="btn btn-success" ng-click="question()">
         <span class="glyphicon glyphicon-plus-sign"></span>  Create New Question
     </button>
 
@@ -27,6 +27,7 @@
     <table class="table table-condensed table-striped  table-hover" style="width: auto !important;">
         <thead>
         <tr>
+            <th></th>
             <th>Number</th>
             <th width="70%">Question</th>
             <th>Edit</th>
@@ -35,6 +36,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="question in allQuestions">
+            <!--<td>-->
+                <!--<button ng-if="question.expanded" ng-click="question.expanded = false">-</button>-->
+                <!--<button ng-if="!question.expanded" ng-click="question.expanded = true">+</button>-->
+            <!--</td>-->
             <td>{{ question.number }}</td>
             <td>{{ question.text }}</td>
             <td>
@@ -48,6 +53,9 @@
                 </button>
             </td>
         </tr>
+        <!--<tr ng-if="question.expanded" ng-repeat-end="">-->
+            <!--<td colspan="3">{{ question.possibleAnswers }}</td>-->
+        <!--</tr>-->
         </tbody>
     </table>
 

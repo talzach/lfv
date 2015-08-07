@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Question</title>
+    <title>Edit Question</title>
 </head>
 <body>
 <div class="container-fluid">
     <div class="alert alert-success" role="alert" ng-show="IsSaved">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="removeSaveSucceed()">&times;</a>
-        <strong>Success!</strong> Question Saved with number {{ newQuestion.number }}.
+        <strong>Success!</strong> Question Saved with number {{ question.number }}.
     </div>
     <div class="alert alert-danger" role="alert" ng-show="IsError">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="removeSaveFailed()">&times;</a>
@@ -34,19 +34,19 @@
     </div>
 
     <div class="container">
-        <h2>Add New Question</h2>
+        <h2>{{ pageTitle }}</h2>
 
         <form role="form">
             <div class="form-group">
                 <label for="question">Question:</label>
                 <br>
-                <input type="text" ng-model="newQuestion.text" class="form-control" id="question">
-                <a ng-click="addAnswer()" class="btn btn-success" ng-click="removeAnswer()" id="addButton">
+                <input type="text" ng-model="question.text" class="form-control" id="question">
+                <a ng-click="addAnswer()" class="btn btn-success" id="addButton">
                     <i class="glyphicon glyphicon-plus-sign"></i>
                 </a>
             </div>
 
-            <div ng-repeat="answer in newQuestion.possibleAnswers" class="form-group">
+            <div ng-repeat="answer in question.possibleAnswers" class="form-group">
                 <label for="answer">Answer:</label>
                 <br>
                 <input type="text" class="form-control" ng-model="answer.text" id="answer">
