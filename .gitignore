@@ -36,4 +36,4 @@
 ehthumbs.db
 Thumbs.db
 
-echo "node_modules/\nbower_components/" >> .gitignore
+echo "node_modules/\npublic/libs/" >> .gitignore
