@@ -13,7 +13,7 @@ module.exports = function (app) {
 
     // Admin UI route
     app.get('/admin*', function (req, res) {
-        res.sendFile(appRoot + '/public/views/admin/admin.html');
+        res.sendFile(appRoot + '/public/views/admin/adminIndex.html');
     });
 
     // UI route
