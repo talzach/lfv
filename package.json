@@ -1,14 +1,18 @@
 {
-  "name": "starter-node-angular",
+  "name": "locationForVacation-starter-node",
   "main": "server.js",
   "dependencies": {
-    "express" : "latest",
-    "mongodb" : "latest",
-    "mongoose" : "latest",
-    "mongoose-auto-increment" : "latest",
-    "mongoose-validator" : "latest",
-    "body-parser" : "latest",
-    "method-override" : "latest",
-    "bson" : "latest"
+    "body-parser": "latest",
+    "bson": "latest",
+    "express": "latest",
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-jshint": "latest",
+    "jshint-stylish": "latest",
+    "method-override": "latest",
+    "mongodb": "latest",
+    "mongoose": "latest",
+    "mongoose-auto-increment": "latest",
+    "mongoose-validator": "latest"
   }
 }

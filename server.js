@@ -47,3 +47,4 @@ console.log('Location For Vacation server on port: ' + port);
 
 // expose app
 exports = module.exports = app;
+

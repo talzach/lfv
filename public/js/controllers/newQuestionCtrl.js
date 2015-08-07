@@ -1,6 +1,5 @@
 angular.module('newQuestionCtrl', []).controller('newQuestionController', function ($scope, questionService, $timeout) {
     $scope.newQuestion = new questionService();
-    $scope.newQuestion.number = NaN;
     $scope.newQuestion.text = "";
     $scope.newQuestion.possibleAnswers = [{'number': 1, text: ""}, {'number': 2, text: ""}];
 
@@ -25,7 +24,7 @@ angular.module('newQuestionCtrl', []).controller('newQuestionController', functi
     $scope.save = function () {
         $scope.newQuestion.$save({},
             function (data, headers) {
-                if (data != null) {
+                if (data !== null) {
                     $scope.IsSaved = true;
                     $timeout($scope.removeSaveSucceed, 3000);
                 }
