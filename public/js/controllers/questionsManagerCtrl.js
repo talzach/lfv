@@ -9,19 +9,19 @@ angular.module('questionsManagerCtrl', []).controller('questionsManagerControlle
         });
 
     $scope.newQuestion = function () {
-        $location.path("/admin/newQuestion");
+        $location.path("/admin/editQuestion");
     };
 
     $scope.editQuestion = function (question) {
-        question.text += 'edited!!';
-        question.$update(
-            function (data) {
-                question = data;
-            },
-            function (response) {
-                $scope.serverErrors = response.data.errors;
-                $scope.IsError = true;
-            });
+        $location.path("/admin/editQuestion").search({question: question});
+        //question.$update(
+        //    function (data) {
+        //        question = data;
+        //    },
+        //    function (response) {
+        //        $scope.serverErrors = response.data.errors;
+        //        $scope.IsError = true;
+        //    });
     };
 
     $scope.deleteQuestion = function (question, $index) {

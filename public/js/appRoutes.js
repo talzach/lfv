@@ -1,5 +1,4 @@
 angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
     $routeProvider
 
         .when('/', {
@@ -12,7 +11,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'questionController'
         });
 
-
+    $routeProvider.otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 
 }]);

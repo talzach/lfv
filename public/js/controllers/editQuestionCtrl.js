@@ -1,7 +1,16 @@
-angular.module('newQuestionCtrl', []).controller('newQuestionController', function ($scope, questionService, $timeout) {
-    $scope.newQuestion = new questionService();
-    $scope.newQuestion.text = "";
-    $scope.newQuestion.possibleAnswers = [{'number': 1, text: ""}, {'number': 2, text: ""}];
+angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, questionService, $timeout, $routeParams) {
+    if ($routeParams.question === undefined) {
+        initializeNewQuestion();
+    }
+    else {
+        $scope.newQuestion = $routeParams.question;
+    }
+
+    function initializeNewQuestion() {
+        $scope.newQuestion = new questionService();
+        $scope.newQuestion.text = "";
+        $scope.newQuestion.possibleAnswers = [{'number': 1, text: ""}, {'number': 2, text: ""}];
+    }
 
     $scope.addAnswer = function () {
         var newItemNo = $scope.newQuestion.possibleAnswers.length + 1;
