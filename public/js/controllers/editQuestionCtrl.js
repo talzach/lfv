@@ -1,15 +1,18 @@
-angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, questionService, $timeout, $routeParams) {
-    if ($routeParams.question) {
-        $scope.question = $routeParams.question;
+angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular) {
+    if ($routeParams.number) {
         $scope.pageTitle = 'Edit Question';
+        Restangular.one('api/questions', $routeParams.number).get().then(
+            function (data) {
+                $scope.question = data;
+            });
     }
     else {
-        initializeNewQuestion();
         $scope.pageTitle = 'Add New Question';
+        initializeNewQuestion();
     }
 
     function initializeNewQuestion() {
-        $scope.question = new questionService();
+        $scope.question = Restangular.one('api/questions');
         $scope.question.number = NaN;
         $scope.question.possibleAnswers = [{}, {}];
     }
@@ -33,9 +36,10 @@ angular.module('editQuestionCtrl', []).controller('editQuestionController', func
     };
 
     $scope.save = function () {
-        $scope.question.$update(
+        $scope.question.save().then(
             function (data) {
                 if (data) {
+                    $scope.question = data;
                     $scope.IsSaved = true;
                     $timeout($scope.removeSaveSucceed, 3000);
                 }

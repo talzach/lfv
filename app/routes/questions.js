@@ -1,19 +1,19 @@
 var questionModel = require('./../models/questionModel');
 
 exports.get = function (req, res) {
-    questionModel.find({number: req.params.number}, function (err, question) {
+    questionModel.find({number: req.params.number}, function (err, questions) {
         if (err) {
             return res.send(400, {error: err});
         }
 
-        res.json(question[0]);
+        res.json(questions[0]);
     });
 };
 
 exports.update = function (req, res) {
-    var query = {'number': req.body.number};
+    var query = { 'number': req.body.number };
     questionModel.findOneAndUpdate(query, req.body, {upsert: true, new: true},
-        function (err, question, raw) {
+        function (err, question) {
             if (err) {
                 return res.send(500, {error: err});
             }

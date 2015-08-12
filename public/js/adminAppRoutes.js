@@ -5,7 +5,12 @@ angular.module('adminAppRoutes', []).config(['$routeProvider', '$locationProvide
             controller: 'questionsManagerController'
         })
 
-        .when('/admin/editQuestion', {
+        .when('/admin/editQuestion/:number', {
+            templateUrl: 'views/admin/editQuestion.html',
+            controller: 'editQuestionController'
+        })
+
+        .when('/admin/newQuestion', {
             templateUrl: 'views/admin/editQuestion.html',
             controller: 'editQuestionController'
         });
