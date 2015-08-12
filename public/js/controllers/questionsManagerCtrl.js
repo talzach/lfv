@@ -1,31 +1,24 @@
-angular.module('questionsManagerCtrl', []).controller('questionsManagerController', function ($scope, $location, questionService) {
-    questionService.query(
-        function (data) {
-            $scope.allQuestions = data;
+angular.module('questionsManagerCtrl', []).controller('questionsManagerController', function ($scope, $location, Restangular) {
+    var questions = Restangular.all('api/questions');
+    questions.getList().then(
+        function (allQuestions) {
+            $scope.allQuestions = allQuestions;
         },
         function (response) {
             $scope.serverErrors = response.data.errors;
             $scope.IsError = true;
         });
 
-    $scope.newQuestion = function () {
-        $location.path("/admin/editQuestion");
+    $scope.createNew = function () {
+        $location.path("/admin/newQuestion");
     };
 
     $scope.editQuestion = function (question) {
-        $location.path("/admin/editQuestion").search({question: question});
-        //question.$update(
-        //    function (data) {
-        //        question = data;
-        //    },
-        //    function (response) {
-        //        $scope.serverErrors = response.data.errors;
-        //        $scope.IsError = true;
-        //    });
+        $location.path("/admin/editQuestion/" + question.number);
     };
 
     $scope.deleteQuestion = function (question, $index) {
-        question.$delete(
+        Restangular.one('api/questions', question.number).remove().then(
             function (data) {
                 if (data) {
                     $scope.allQuestions.splice($index, 1);

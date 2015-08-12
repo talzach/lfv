@@ -1,1 +1,1 @@
-angular.module('locationForVacationApp', ['ngRoute', 'ngResource', 'appRoutes', 'questionCtrl', 'questionService', 'mainCtrl']);
+angular.module('locationForVacationApp', ['ngRoute', 'restangular', 'appRoutes', 'questionCtrl', 'mainCtrl']);

@@ -1,25 +1,30 @@
-angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, questionService, $timeout, $routeParams) {
-    if ($routeParams.question === undefined) {
-        initializeNewQuestion();
+angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular) {
+    if ($routeParams.number) {
+        $scope.pageTitle = 'Edit Question';
+        Restangular.one('api/questions', $routeParams.number).get().then(
+            function (data) {
+                $scope.question = data;
+            });
     }
     else {
-        $scope.newQuestion = $routeParams.question;
+        $scope.pageTitle = 'Add New Question';
+        initializeNewQuestion();
     }
 
     function initializeNewQuestion() {
-        $scope.newQuestion = new questionService();
-        $scope.newQuestion.text = "";
-        $scope.newQuestion.possibleAnswers = [{'number': 1, text: ""}, {'number': 2, text: ""}];
+        $scope.question = Restangular.one('api/questions');
+        $scope.question.number = NaN;
+        $scope.question.possibleAnswers = [{}, {}];
     }
 
     $scope.addAnswer = function () {
-        var newItemNo = $scope.newQuestion.possibleAnswers.length + 1;
-        $scope.newQuestion.possibleAnswers.push({'number': newItemNo, text: ""});
+        var newItemNo = $scope.question.possibleAnswers.length + 1;
+        $scope.question.possibleAnswers.push({'number': newItemNo, text: ""});
     };
 
     $scope.removeAnswer = function () {
-        var lastItem = $scope.newQuestion.possibleAnswers.length - 1;
-        $scope.newQuestion.possibleAnswers.splice(lastItem);
+        var lastItem = $scope.question.possibleAnswers.length - 1;
+        $scope.question.possibleAnswers.splice(lastItem);
     };
 
     $scope.removeSaveSucceed = function () {
@@ -31,9 +36,10 @@ angular.module('editQuestionCtrl', []).controller('editQuestionController', func
     };
 
     $scope.save = function () {
-        $scope.newQuestion.$save({},
-            function (data, headers) {
-                if (data !== null) {
+        $scope.question.save().then(
+            function (data) {
+                if (data) {
+                    $scope.question = data;
                     $scope.IsSaved = true;
                     $timeout($scope.removeSaveSucceed, 3000);
                 }
@@ -41,7 +47,6 @@ angular.module('editQuestionCtrl', []).controller('editQuestionController', func
             function (response) {
                 $scope.serverErrors = response.data.errors;
                 $scope.IsError = true;
-            }
-        );
+            });
     };
 });

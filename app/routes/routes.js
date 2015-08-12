@@ -5,10 +5,10 @@ var questions = require('./questions'),
 module.exports = function (app) {
 
     // Question routes
+    app.get('/api/questions/:number', questions.get);
     app.get('/api/questions', questions.getAll);
     app.post('/api/questions', questions.create);
-    app.get('/api/questions/:number', questions.get);
-    app.put('/api/questions/:number', questions.update);
+    app.put('/api/questions', questions.update);
     app.delete('/api/questions/:number', questions.remove);
 
     // Admin UI route

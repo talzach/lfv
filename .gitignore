@@ -1,3 +1,8 @@
+# Dependencies #
+###################
+node_modules/
+public/libs/
+
 # Compiled source #
 ###################
 *.com
@@ -35,5 +40,3 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-echo "node_modules/\npublic/libs/" >> .gitignore

@@ -1,1 +1,1 @@
-angular.module('adminApp', ['ngRoute', 'ngResource', 'adminAppRoutes', 'questionService', 'questionsManagerCtrl', 'editQuestionCtrl']);
+angular.module('adminApp', ['ngRoute', 'restangular', 'adminAppRoutes', 'questionsManagerCtrl', 'editQuestionCtrl']);
