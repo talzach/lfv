@@ -1,0 +1,10 @@
+.questionWrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+}
+.buttonWrapper {
+    text-align: center;
+}
+
+html, body { margin: 0; padding: 0; }

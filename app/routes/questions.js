@@ -6,6 +6,8 @@ exports.get = function (req, res) {
             return res.send(400, {error: err});
         }
 
+        questions[0].possibleAnswers.
+
         res.json(questions[0]);
     });
 };

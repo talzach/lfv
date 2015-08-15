@@ -16,12 +16,11 @@ var possibleAnswersValidator = [
 ];
 
 var questionSchema = new Schema({
-    number: Schema.ObjectId,
+    number: Number,
     text: { type: String, required: true },
     possibleAnswers: { type: [PossibleAnswerSchema], required: true, validate: possibleAnswersValidator },
     type: String
 });
-
 
 questionSchema.plugin(autoIncrement.plugin, { model: 'Question', field: 'number' });
 module.exports = mongoose.model('Question', questionSchema);

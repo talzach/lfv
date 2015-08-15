@@ -1,6 +1,6 @@
-angular.module('editQuestionCtrl', []).controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular) {
+angular.module('lfv.controllers').controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular) {
     if ($routeParams.number) {
-        $scope.pageTitle = 'Edit Question';
+        $scope.pageTitle = 'Edit Question Number ' + $routeParams.number;
         Restangular.one('api/questions', $routeParams.number).get().then(
             function (data) {
                 $scope.question = data;

@@ -1,4 +1,4 @@
-angular.module('questionsManagerCtrl', []).controller('questionsManagerController', function ($scope, $location, Restangular) {
+angular.module('lfv.controllers').controller('questionsManagerController', function ($scope, $location, Restangular) {
     var questions = Restangular.all('api/questions');
     questions.getList().then(
         function (allQuestions) {

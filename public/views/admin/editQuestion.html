@@ -37,24 +37,10 @@
         <h2>{{ pageTitle }}</h2>
 
         <form role="form">
-            <div class="form-group">
-                <label for="question">Question:</label>
-                <br>
-                <input type="text" ng-model="question.text" class="form-control" id="question">
-                <a ng-click="addAnswer()" class="btn btn-success" id="addButton">
-                    <i class="glyphicon glyphicon-plus-sign"></i>
-                </a>
+            <div edit-yes-no-question></div>
+            <div class="buttonWrapper">
+                <input type="submit" value="Save" ng-click="save()" class="btn btn-info btn-lg">
             </div>
-
-            <div ng-repeat="answer in question.possibleAnswers" class="form-group">
-                <label for="answer">Answer:</label>
-                <br>
-                <input type="text" class="form-control" ng-model="answer.text" id="answer">
-                <a class="btn btn-danger remove_fields" ng-click="removeAnswer()" ng-show="$last" id="removeButton">
-                    <i class="glyphicon glyphicon-minus-sign"></i>
-                </a>
-            </div>
-            <input type="submit" value="Save" ng-click="save()" class="btn btn-info btn-lg">
         </form>
     </div>
 </div>

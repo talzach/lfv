@@ -8,10 +8,10 @@
 <div class="container">
     <h1>{{ question.text }}</h1>
 
-    <div ng-repeat="x in question.possibleAnswers">
+    <div ng-repeat="answer in question.possibleAnswers">
         <div class="radio">
             <label>
-                <input type="radio" name="optradio">{{ x.text }}
+                <input type="radio" name="optradio">{{ answer.text }}
             </label>
         </div>
     </div>

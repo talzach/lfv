@@ -1,1 +1,1 @@
-angular.module('locationForVacationApp', ['ngRoute', 'restangular', 'appRoutes', 'questionCtrl', 'mainCtrl']);
+angular.module('locationForVacationApp', ['ngRoute', 'restangular', 'appRoutes', 'lfv.controllers', 'lfv.directives']);

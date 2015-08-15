@@ -4,6 +4,15 @@ select{
     padding:5px;
     width: 60%;
 }
+input[type="number"],
+select{
+    padding:5px;
+    width: 7%;
+}
+.buttonWrapper {
+    position: absolute;
+    left: 30%;
+}
 div[role="alert"],
 select{
     width: 60%;

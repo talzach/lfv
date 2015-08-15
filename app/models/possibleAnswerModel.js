@@ -3,8 +3,9 @@ var mongoose = require('mongoose'),
     autoIncrement = require('mongoose-auto-increment');
 
 var possibleAnswerSchema = new Schema({
-    number: Schema.ObjectId,
-    text: String
+    number: Number,
+    text: String,
+    restrictedQuestions: [{ type: Schema.Types.ObjectId, ref: 'Question' }]
 });
 
 possibleAnswerSchema.plugin(autoIncrement.plugin, {model: 'PossibleAnswer', field: 'number'});
