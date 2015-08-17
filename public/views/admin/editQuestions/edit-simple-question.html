@@ -28,7 +28,7 @@
     <div ng-repeat="restrictedQuestion in answer.restrictedQuestions">
         <p class="form-control" id="restrictedQuestionsNumbers">{{ restrictedQuestion }}</p>,
     </div>
-    <button>Add Restricted</button>
+    <button ng-click="addRestricted(answer)">Add Restricted</button>
 </div>
 </body>
 </html>

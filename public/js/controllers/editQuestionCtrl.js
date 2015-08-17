@@ -1,4 +1,4 @@
-angular.module('lfv.controllers').controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular) {
+angular.module('lfv.controllers').controller('editQuestionController', function ($scope, $timeout, $routeParams, Restangular, $modal) {
     if ($routeParams.number) {
         $scope.pageTitle = 'Edit Question Number ' + $routeParams.number;
         Restangular.one('api/questions', $routeParams.number).get().then(
@@ -48,5 +48,25 @@ angular.module('lfv.controllers').controller('editQuestionController', function 
                 $scope.serverErrors = response.data.errors;
                 $scope.IsError = true;
             });
+    };
+
+    $scope.addRestricted = function (answer) {
+        var modalInstance = $modal.open({
+            animation: false,
+            templateUrl: '../../dialogs/restrictedQuestions.html',
+            controller: 'restrictedQuestionsCtrl',
+            size: 'lg',
+            resolve: {
+                question: function () {
+                    return answer;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
     };
 });
