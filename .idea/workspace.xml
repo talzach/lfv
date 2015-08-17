@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85b179c1-f9d6-4781-91c4-6a9a34bbed87" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/directives/directives.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MEAN.iws" />
@@ -76,8 +77,8 @@
       <file leaf-file-name="directives.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/directives/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2895377">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.5377129">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,7 +189,6 @@
         <option value="$PROJECT_DIR$/public/views/admin/editQuestions/yes-no-question.html" />
         <option value="$PROJECT_DIR$/app/models/questionModel.js" />
         <option value="$PROJECT_DIR$/app/models/possibleAnswerModel.js" />
-        <option value="$PROJECT_DIR$/public/js/directives/directives.js" />
         <option value="$PROJECT_DIR$/app/routes/questions.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
@@ -200,6 +200,7 @@
         <option value="$PROJECT_DIR$/public/js/controllers/editQuestionCtrl.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/restrictedQuestionsCtrl.js" />
         <option value="$PROJECT_DIR$/public/dialogs/restrictedQuestions.html" />
+        <option value="$PROJECT_DIR$/public/js/directives/directives.js" />
       </list>
     </option>
   </component>
@@ -696,7 +697,13 @@
       <option name="project" value="LOCAL" />
       <updated>1439842289545</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="restangular working 2">
+      <created>1439842308272</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1439842308272</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1171,8 +1178,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/directives/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2895377">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.5377129">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
