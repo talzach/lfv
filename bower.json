@@ -12,6 +12,7 @@
     "angular-route": "latest",
     "restangular": "latest",
     "lodash": "latest",
-    "ui-bootstrap": "~0.13.3"
+    "ui-bootstrap": "~0.13.3",
+    "angucomplete-alt": "~1.1.0"
   }
 }

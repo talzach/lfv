@@ -2,14 +2,44 @@
     <h3 class="modal-title">Restricted Questions</h3>
 </div>
 <div class="modal-body">
+    <p ng-show="hasRestrictedQuestions()">No restricted questions selected for this answer.</p>
     <ul>
         <li ng-repeat="restrictedQuestion in answer.restrictedQuestions">
-            <a href="#" ng-click="$event.preventDefault(); selected = answer.restrictedQuestions[0]">{{ answer.restrictedQuestions[0] }}</a>
+            <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">
+                {{ restrictedQuestion.number }}
+            </a>
+            <a href="#" ng-click="removeQuestion($index)"><i class="fa fa-trash-o fa-fw"></i></a>
         </li>
     </ul>
-    Selected: <b>{{ selected }}</b>
+    <div class="form-group">
+        <br>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10">
+                    <angucomplete-alt id="restrictedQuestion"
+                                      placeholder="Search questions"
+                                      pause="100"
+                                      selected-object="questionToAdd"
+                                      local-data="allQuestions"
+                                      search-fields="number,text"
+                                      title-field="number,text"
+                                      minlength="1"
+                                      input-class="form-control form-control-small"
+                                      match-class="highlight"
+                                      field-required="true">
+                    </angucomplete-alt>
+                </div>
+                <div class="col-md-2">
+                    <a ng-click="addRestricted()" class="btn btn-success" id="addButton">
+                        Add
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-primary" type="button" ng-click="save()">Save</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 </div>

@@ -50,23 +50,22 @@ angular.module('lfv.controllers').controller('editQuestionController', function 
             });
     };
 
-    $scope.addRestricted = function (answer) {
+    $scope.showRestricted = function (answer) {
         var modalInstance = $modal.open({
             animation: false,
             templateUrl: '../../dialogs/restrictedQuestions.html',
             controller: 'restrictedQuestionsCtrl',
-            size: 'lg',
+            size: 'md',
             resolve: {
-                question: function () {
+                answer: function () {
                     return answer;
                 }
             }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
+        modalInstance.result.then(
+            function () {
+                $scope.save();
+            });
     };
 });

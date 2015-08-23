@@ -1,1 +1,1 @@
-angular.module('adminApp', ['ngRoute', 'ui.bootstrap', 'restangular', 'adminAppRoutes', 'lfv.controllers', 'lfv.directives']);
+angular.module('adminApp', ['ngRoute', 'ui.bootstrap', "angucomplete-alt", 'restangular', 'adminAppRoutes', 'lfv.controllers', 'lfv.directives']);
