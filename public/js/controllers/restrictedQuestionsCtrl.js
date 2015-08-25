@@ -1,4 +1,4 @@
-angular.module('lfv.controllers').controller('restrictedQuestionsCtrl', function ($scope, Restangular, $modalInstance, answer) {
+angular.module('lfv.controllers').controller('restrictedQuestionsCtrl', function ($scope, Restangular, $modalInstance, answer, $window) {
     $scope.answer = answer;
     $scope.questionToAdd = null;
 
@@ -28,5 +28,10 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl', function
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
+    };
+
+    $scope.goToQuestion = function (number) {
+        $window.open("/admin/editQuestion/" + number, '_blank');
+        //$location.url("/admin/editQuestion/" + question.number);
     };
 });
