@@ -1,4 +1,4 @@
-<form ng-submit="addRestricted()">
+<form ng-submit="addRestricted()" onload="loaded()">
     <div class="modal-header">
         <h3 class="modal-title">Restricted Questions</h3>
     </div>
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-10">
-                        <angucomplete-alt id="restrictedQuestion"
+                        <angucomplete-alt id="restrictedQuestionSelector"
                                           placeholder="Search questions"
                                           pause="100"
                                           selected-object="questionToAdd"
@@ -32,9 +32,9 @@
                         </angucomplete-alt>
                     </div>
                     <div class="col-md-2">
-                        <a type=submit class="btn btn-success" id="addButton">
+                        <button type=submit class="btn btn-success" id="addButton" ng-click="addRestricted()">
                             Add
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

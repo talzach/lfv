@@ -8,6 +8,10 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl', function
                 $scope.allQuestions = allQuestions;
         });
 
+    function loaded() {
+        document.getElementById("restrictedQuestionSelector").focus();
+    }
+
     $scope.hasRestrictedQuestions = function() {
         return answer.restrictedQuestions.length == 0;
     };

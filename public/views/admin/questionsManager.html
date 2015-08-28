@@ -57,9 +57,11 @@
         </tr>
         <tr ng-if="question.expanded" ng-repeat-end="">
             <td colspan="4">
-                <li ng-repeat="answer in question.possibleAnswers">
-                    <div>{{ answer.text }}</div>
-                </li>
+                <ul>
+                    <li ng-repeat="answer in question.possibleAnswers">
+                        <div>{{ answer.text }}</div>
+                    </li>
+                </ul>
             </td>
         </tr>
         </tbody>
