@@ -36,6 +36,5 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl', function
 
     $scope.goToQuestion = function (number) {
         $window.open("/admin/editQuestion/" + number, '_blank');
-        //$location.url("/admin/editQuestion/" + question.number);
     };
 });

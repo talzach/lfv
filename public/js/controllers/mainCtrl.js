@@ -1,3 +1,3 @@
 angular.module('lfv.controllers').controller('mainController', function($scope) {
-    $scope.tagline = 'To the moon and baca!';
+    $scope.tagline = 'To the moon and back';
 });

@@ -1,7 +1,6 @@
-angular.module('lfv.controllers').controller('questionController', function ($scope, Restangular) {
-    $scope.question = Restangular.one('api/questions', 48).get().then(
+angular.module('lfv.controllers').controller('questionController', ['$scope', 'questionService', function ($scope, questionService) {
+    questionService.get(48).then(
         function (data) {
             $scope.question = data;
-        }
-    )
-});
+        });
+}]);
