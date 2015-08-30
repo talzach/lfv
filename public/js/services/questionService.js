@@ -1,6 +1,6 @@
 angular.module('lfv.services').factory('questionService',
-    ['Restangular',
-        function (Restangular) {
+    ['Restangular', 'questionFactory',
+        function (Restangular, questionFactory) {
 
         return {
             get: function (number) {
@@ -10,12 +10,8 @@ angular.module('lfv.services').factory('questionService',
                 var questions = Restangular.all('api/questions');
                 return questions.getList();
             },
-            create: function () {
-                var question = Restangular.one('api/questions');
-                question.number = NaN;
-                question.possibleAnswers = [{}, {}];
-
-                return question;
+            create: function (type) {
+                return questionFactory.createQuestion(type);
             },
             save: function (question) {
                 return question.save();

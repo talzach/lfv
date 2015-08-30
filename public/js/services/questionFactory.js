@@ -1,11 +1,23 @@
-angular.module('lfv.services').service('questionFactory', function () {
+angular.module('lfv.services').service('questionFactory', ['Restangular', function (Restangular) {
     this.createQuestion = function (type) {
-        var question;
+        var question = Restangular.one('api/questions');
+        question.number = NaN;
+        question.type = type;
 
         if (type === "YesOn") {
-            question = new FullTime();
+            initializeYesNoQuestion(question);
         } else if (type === "Simple") {
-            question = new PartTime();
+            initializeSimpleQuestion(question);
         }
-    }
-});
+
+        return question;
+
+        function initializeSimpleQuestion(question) {
+            question.possibleAnswers = [{}, {}];
+        }
+
+        function initializeYesNoQuestion(question) {
+            question.possibleAnswers = [{ text: 'Yes' }, { text: 'No' }];
+        }
+    };
+}]);

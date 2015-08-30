@@ -18,8 +18,7 @@ angular.module('lfv.controllers').controller('editQuestionController',
             }
 
             $('#questionTypeDropDown li').on('click', function(){
-                $scope.question = questionService.create();
-                $scope.question.type = $(this).text();
+                $scope.question = questionService.create($(this).text());
             });
 
             $scope.addAnswer = function () {
