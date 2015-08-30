@@ -1,5 +1,6 @@
 angular.module('adminAppRoutes', []).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
+        
         .when('/admin', {
             templateUrl: 'views/admin/questionsManager.html',
             controller: 'questionsManagerController'

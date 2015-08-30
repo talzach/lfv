@@ -4,16 +4,23 @@ angular.module('lfv.controllers').controller('editQuestionController',
 
             if ($routeParams.number) {
                 $scope.pageTitle = 'Edit Question Number ' + $routeParams.number;
+                $scope.isNewQestion = false;
                 questionService.get($routeParams.number).then(
                     function (data) {
                         $scope.question = data;
+                        $scope.question.type = 'Simple';
                     }
                 );
             }
             else {
                 $scope.pageTitle = 'Add New Question';
-                $scope.question = questionService.create();
+                $scope.isNewQestion = true;
             }
+
+            $('#questionTypeDropDown li').on('click', function(){
+                $scope.question = questionService.create();
+                $scope.question.type = $(this).text();
+            });
 
             $scope.addAnswer = function () {
                 var newItemNo = $scope.question.possibleAnswers.length + 1;
@@ -48,7 +55,7 @@ angular.module('lfv.controllers').controller('editQuestionController',
                     });
             };
 
-            $scope.showRestricted = function (answer) {
+            $scope.showRestricted = function (answer, $index) {
                 var modalInstance = $modal.open({
                     animation: false,
                     templateUrl: '../../../dialogs/restrictedQuestions.html',
@@ -61,8 +68,8 @@ angular.module('lfv.controllers').controller('editQuestionController',
                     }
                 });
                 modalInstance.result.then(
-                    function () {
-                        $scope.save();
+                    function (newAnswer) {
+                        $scope.question.possibleAnswers[$index] = newAnswer;
                     });
             };
 

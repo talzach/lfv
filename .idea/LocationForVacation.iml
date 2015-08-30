@@ -13,5 +13,6 @@
     <orderEntry type="library" name="LocationForVacation node_modules" level="project" />
     <orderEntry type="library" name="angular-odata-resources-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="restangular-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="jQuery-2.0.0" level="application" />
   </component>
 </module>

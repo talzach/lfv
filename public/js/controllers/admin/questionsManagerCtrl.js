@@ -18,11 +18,12 @@ angular.module('lfv.controllers').controller('questionsManagerController',
                 $location.path("/admin/editQuestion/" + question.number);
             };
 
-            $scope.deleteQuestion = function (question, $index) {
-                Restangular.one('api/questions', question.number).remove().then(
+            $scope.deleteQuestion = function (question) {
+                questionService.delete(question.number).then(
                     function (data) {
                         if (data) {
-                            $scope.allQuestions.splice($index, 1);
+                            var index = $scope.allQuestions.indexOf(question);
+                            $scope.allQuestions.splice(index, 1);
                         }
                     },
                     function (response) {

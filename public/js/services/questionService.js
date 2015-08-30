@@ -4,20 +4,11 @@ angular.module('lfv.services').factory('questionService',
 
         return {
             get: function (number) {
-                return Restangular.one('api/questions', number).get().then(
-                    function (data) {
-                        return data;
-                    });
+                return Restangular.one('api/questions', number).get();
             },
             getAll: function() {
                 var questions = Restangular.all('api/questions');
-                return questions.getList().then(
-                    function (data) {
-                        return data;
-                    },
-                    function (response) {
-                        return response;
-                    });
+                return questions.getList();
             },
             create: function () {
                 var question = Restangular.one('api/questions');
@@ -27,15 +18,10 @@ angular.module('lfv.services').factory('questionService',
                 return question;
             },
             save: function (question) {
-                return question.save().then(
-                    function (data) {
-                        if (data) {
-                            return data;
-                        }
-                    },
-                    function (response) {
-                        return response;
-                    });
+                return question.save();
+            },
+            delete: function (number) {
+                return Restangular.one('api/questions', number).remove();
             }
         };
 
