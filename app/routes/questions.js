@@ -5,7 +5,7 @@ exports.get = function (req, res) {
         .populate('possibleAnswers.restrictedQuestions')
         .exec(function (err, questions) {
             if (err) {
-                return res.send(400, {error: err});
+                return res.status(400).send({error: err});
             }
 
             res.json(questions[0]);
@@ -19,7 +19,7 @@ exports.update = function (req, res) {
         .populate('possibleAnswers.restrictedQuestions')
         .exec(function (err, question) {
             if (err) {
-                return res.send(500, {error: err});
+                return res.status(500).send({error: err});
             }
 
             console.log("Question updated");
@@ -31,7 +31,7 @@ exports.getAll = function (req, res) {
     questionModel.find(
         function (err, questions) {
             if (err) {
-                return res.send(400, {error: err});
+                return res.status(400).send({error: err});
             }
 
             res.json(questions);
@@ -46,7 +46,7 @@ exports.create = function (req, res) {
         }
         else {
             console.log(err);
-            return res.send(400, {error: err});
+            return res.status(400).send({error: err});
         }
     });
 };
@@ -54,7 +54,7 @@ exports.create = function (req, res) {
 exports.remove = function (req, res) {
     questionModel.remove({number: req.params.number}, function (err) {
         if (err) {
-            return res.send(400, {error: err});
+            return res.status(400).send({error: err});
         }
 
         res.send(true);

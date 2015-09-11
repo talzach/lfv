@@ -4,7 +4,7 @@ angular.module('lfv.services').service('questionFactory', ['Restangular', functi
         question.number = NaN;
         question.type = type;
 
-        if (type === "YesOn") {
+        if (type === "YesNo") {
             initializeYesNoQuestion(question);
         } else if (type === "Simple") {
             initializeSimpleQuestion(question);

@@ -8,7 +8,6 @@ angular.module('lfv.controllers').controller('editQuestionController',
                 questionService.get($routeParams.number).then(
                     function (data) {
                         $scope.question = data;
-                        $scope.question.type = 'Simple';
                     }
                 );
             }

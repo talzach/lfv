@@ -7,18 +7,14 @@
 <div class="form-group">
     <label for="question">Question:</label>
     <br>
-    <input type="text" ng-model="question.text" class="form-control" id="question">
+    <input type="text" ng-model="question.text" class="form-control textInput" id="question">
 </div>
 
-<div class="radio">
-    <label>
-        <input type="radio" name="optradio">Yes
-    </label>
+<div ng-repeat="answer in question.possibleAnswers" class="form-group">
+    <h3 id="answer">{{ answer.text }}:</h3>
+    <br>
+    <button class="btn btn-danger btn-xs" style="margin: 5px 0 0 0" ng-click="showRestricted(answer, $index)">Restricted Questions</button>
 </div>
-<div class="radio">
-    <label>
-        <input type="radio" name="optradio">No
-    </label>
-</div>
+
 </body>
 </html>
