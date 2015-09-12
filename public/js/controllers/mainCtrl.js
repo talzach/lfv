@@ -1,3 +1,3 @@
-angular.module('lfv.controllers').controller('mainController', function($scope) {
+angular.module('lfv.controllers').controller('mainController',['$scope', function($scope) {
     $scope.tagline = 'To the moon and back';
-});
+}]);
