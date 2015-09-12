@@ -5,6 +5,7 @@ exports.get = function (req, res) {
         .populate('possibleAnswers.restrictedQuestions')
         .exec(function (err, questions) {
             if (err) {
+                console.log(err);
                 return res.status(400).send({error: err});
             }
 
@@ -13,12 +14,13 @@ exports.get = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    var query = {'number': req.body.number};
+    var query = {'_id': req.body._id};
 
     questionModel.findOneAndUpdate(query, req.body, {upsert: true, new: true})
         .populate('possibleAnswers.restrictedQuestions')
         .exec(function (err, question) {
             if (err) {
+                console.log(err);
                 return res.status(500).send({error: err});
             }
 
@@ -54,6 +56,7 @@ exports.create = function (req, res) {
 exports.remove = function (req, res) {
     questionModel.remove({number: req.params.number}, function (err) {
         if (err) {
+            console.log(err);
             return res.status(400).send({error: err});
         }
 

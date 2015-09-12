@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "jquery": "latest",
+    "jquery-ui": "latest",
     "bootstrap": "latest",
     "font-awesome": "latest",
     "animate.css": "latest",
@@ -13,6 +14,8 @@
     "restangular": "latest",
     "lodash": "latest",
     "ui-bootstrap": "~0.13.3",
-    "angucomplete-alt": "~1.1.0"
+    "angucomplete-alt": "~1.1.0",
+    "angular-ui": "~0.4.0",
+    "angular-ui-sortable": "~0.13.4"
   }
 }

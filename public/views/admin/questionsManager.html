@@ -34,8 +34,8 @@
             <th>Delete</th>
         </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat-start="question in allQuestions | orderBy:'number'">
+        <tbody ui-sortable="sortableOptions" ng-model="allQuestions">
+        <tr ng-repeat-start="question in allQuestions" style="cursor: move;">
             <td>
                 <button class="btn btn-default" ng-if="question.expanded" ng-click="question.expanded = false">-
                 </button>
