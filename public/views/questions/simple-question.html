@@ -11,7 +11,7 @@
     <div ng-repeat="answer in question.possibleAnswers">
         <div class="radio">
             <label>
-                <input type="radio" name="optradio">{{ answer.text }}
+                <input type="radio" name="optradio" ng-model="$parent.selectedAnswer" ng-value="answer">{{ answer.text }}
             </label>
         </div>
     </div>

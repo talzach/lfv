@@ -13,9 +13,17 @@ exports.get = function (req, res) {
         });
 };
 
+exports.getNext = function (req, res) {
+    questionModel.where('_id').nin(req.body.restrictedQuestions)
+        .where('number').gt(req.body.lastQuestionNumber)
+        .sort('number')
+        .findOne(function (err, question) {
+            return res.send(question);
+        });
+};
+
 exports.update = function (req, res) {
     var query = {'_id': req.body._id};
-
     questionModel.findOneAndUpdate(query, req.body, {upsert: true, new: true})
         .populate('possibleAnswers.restrictedQuestions')
         .exec(function (err, question) {

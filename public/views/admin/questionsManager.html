@@ -29,7 +29,8 @@
         <tr>
             <th></th>
             <th>Number</th>
-            <th width="70%">Question</th>
+            <th>Type</th>
+            <th width="65%">Question</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -43,6 +44,7 @@
                 </button>
             </td>
             <td>{{ question.number }}</td>
+            <td>{{ question.type }}</td>
             <td>{{ question.text }}</td>
             <td>
                 <button class="btn" ng-click="editQuestion(question)">

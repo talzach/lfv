@@ -7,9 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../../css/questionStyle.css">
 </head>
 <body>
+<h2 class="questionWrapper">Question Number {{ question.number }}</h2>
     <div class="questionWrapper" simple-question></div>
     <div class="buttonWrapper">
-        <button class="btn btn-primary btn-lg">Next</button>
+        <button class="btn btn-primary btn-lg" ng-click="nextQuestion()" ng-disabled="!selectedAnswer">Next</button>
     </div>
 </body>
 </html>

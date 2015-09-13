@@ -16,6 +16,7 @@ var possibleAnswersValidator = [
 ];
 
 var questionSchema = new Schema({
+    _id: { type: Schema.Types.ObjectId },
     number: { type: Number, required: true },
     text: { type: String, required: true },
     possibleAnswers: { type: [PossibleAnswerSchema], required: true, validate: possibleAnswersValidator },
