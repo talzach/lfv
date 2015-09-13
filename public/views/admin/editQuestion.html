@@ -40,7 +40,7 @@
     <div class="container">
 
         <form role="form">
-            <div class="animate-switch-container" ng-switch on="question.type">
+            <div ng-switch on="question.type">
                 <div edit-simple-question ng-switch-when="Simple"></div>
                 <div edit-yes-no-question ng-switch-when="YesNo"></div>
             </div>

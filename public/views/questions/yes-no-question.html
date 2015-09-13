@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="questionWrapper">
+    <h1>{{ question.text }}</h1>
+    <br>
+    <div class="buttonWrapper">
+        <button type="button" class="btn btn-success btn-lg" style="margin: 0 10px 0 0"
+                ng-click="answerSelected(question.possibleAnswers[0].text)">{{ question.possibleAnswers[0].text }}
+        </button>
+        <button type="button" class="btn btn-danger btn-lg"
+                ng-click="answerSelected(question.possibleAnswers[1].text)">{{ question.possibleAnswers[1].text }}
+        </button>
+    </div>
+</div>
+</body>
+</html>

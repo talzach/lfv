@@ -7,6 +7,14 @@ angular.module('lfv.controllers').controller('questionController', ['$scope', 'q
             $scope.question = data;
         });
 
+    $scope.answerSelected = function(answer) {
+        $scope.selectedAnswer = answer;
+
+        if ($scope.question.type === 'YesNo') {
+            $scope.nextQuestion();
+        }
+    };
+
     $scope.nextQuestion = function () {
         if ($scope.selectedAnswer) {
             if ($scope.selectedAnswer.restrictedQuestions) {

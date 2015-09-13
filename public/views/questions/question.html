@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-
     <link rel="stylesheet" type="text/css" href="../../css/questionStyle.css">
 </head>
 <body>
-<h2 class="questionWrapper">Question Number {{ question.number }}</h2>
-    <div class="questionWrapper" simple-question></div>
-    <div class="buttonWrapper">
-        <button class="btn btn-primary btn-lg" ng-click="nextQuestion()" ng-disabled="!selectedAnswer">Next</button>
-    </div>
+
+<div ng-switch on="question.type">
+    <div simple-question ng-switch-when="Simple"></div>
+    <div yes-no-question ng-switch-when="YesNo"></div>
+</div>
+
+<p class="questionWrapper">Question Number {{ question.number }}</p>
+
 </body>
 </html>

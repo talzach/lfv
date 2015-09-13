@@ -6,14 +6,18 @@
 </head>
 <body>
 <div class="container">
-    <h1>{{ question.text }}</h1>
+    <h1 class="questionWrapper">{{ question.text }}</h1>
 
-    <div ng-repeat="answer in question.possibleAnswers">
+    <div class="questionWrapper" ng-repeat="answer in question.possibleAnswers">
         <div class="radio">
             <label>
-                <input type="radio" name="optradio" ng-model="$parent.selectedAnswer" ng-value="answer">{{ answer.text }}
+                <input type="radio" name="optradio" ng-click="answerSelected(answer)">{{ answer.text }}
             </label>
         </div>
+    </div>
+
+    <div class="buttonWrapper">
+        <button class="btn btn-primary btn-lg" ng-click="nextQuestion()" ng-disabled="!selectedAnswer">Next</button>
     </div>
 </div>
 </body>
