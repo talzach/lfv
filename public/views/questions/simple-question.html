@@ -5,19 +5,19 @@
     <title></title>
 </head>
 <body>
-<div class="container">
-    <h1 class="questionWrapper">{{ question.text }}</h1>
+<div class="container questionDiv">
+    <h1 class="questionWrapper fontColor" style="position: relative; left: 20%">{{ question.text }}</h1>
 
-    <div class="questionWrapper" ng-repeat="answer in question.possibleAnswers">
+    <div class="questionWrapper" style="position: relative; left: 20%" ng-repeat="answer in question.possibleAnswers">
         <div class="radio">
             <label>
-                <input type="radio" name="optradio" ng-click="answerSelected(answer)">{{ answer.text }}
+                <input type="radio" name="optradio" ng-click="answerSelected(answer)"><span class="fontColor">{{ answer.text }}</span>
             </label>
         </div>
     </div>
 
     <div class="buttonWrapper">
-        <button class="btn btn-primary btn-lg" ng-click="nextQuestion()" ng-disabled="!selectedAnswer">Next</button>
+        <button class="btn btn-success btn-lg" ng-click="nextQuestion()" ng-disabled="!selectedAnswer">Next</button>
     </div>
 </div>
 </body>

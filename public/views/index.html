@@ -8,23 +8,24 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/indexStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body ng-app="locationForVacationApp">
-<div class="container">
-
+<body ng-app="locationForVacationApp" style="background-color: rgba(2, 109, 177, 0.91)">
+<div class="divBackground"
+     style="background-image: url(../resources/vacation-318793.jpg); background-size: 100% 100%;">
     <!-- HEADER -->
     <nav class="navbar navbar-default">
-        <div class="navbar-header">
+        <div class="navbar-header navText">
             <a class="navbar-brand" href="/">Location For Vacation</a>
         </div>
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navText">
             <li><a href="/question">Question</a></li>
         </ul>
     </nav>
 
-    <div ng-view></div>
+    <div ng-view ></div>
 
 </div>
 

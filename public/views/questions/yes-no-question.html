@@ -5,15 +5,15 @@
     <title></title>
 </head>
 <body>
-<div class="questionWrapper">
-    <h1>{{ question.text }}</h1>
+<div class="questionWrapper questionDiv text-center">
+    <h1 class="fontColor">{{ question.text }}</h1>
     <br>
     <div class="buttonWrapper">
-        <button type="button" class="btn btn-success btn-lg" style="margin: 0 10px 0 0"
-                ng-click="answerSelected(question.possibleAnswers[0].text)">{{ question.possibleAnswers[0].text }}
+        <button type="button" class="btn btn-success btn-lg" style="margin: 0 10px 0 0; width: 80px"
+                ng-click="answerSelected(question.possibleAnswers[0])">{{ question.possibleAnswers[0].text }}
         </button>
-        <button type="button" class="btn btn-danger btn-lg"
-                ng-click="answerSelected(question.possibleAnswers[1].text)">{{ question.possibleAnswers[1].text }}
+        <button type="button" class="btn btn-danger btn-lg" style="width: 80px"
+                ng-click="answerSelected(question.possibleAnswers[1])">{{ question.possibleAnswers[1].text }}
         </button>
     </div>
 </div>
