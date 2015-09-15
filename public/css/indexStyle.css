@@ -3,21 +3,22 @@
     display:block;
     height:100%;
     width:100%;
-    /*top:0px;*/
-    left:0px;
+    left:0;
     z-index:-1;
 }
-.fontColor {
-    color: rgba(244, 237, 255, 0.81)
-}
 
-.questionDiv {
+.centerDiv {
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.fontColor {
+    color: rgba(244, 237, 255, 0.81)
+}
+
 .navText {
     position: relative; left: 10%;
 }
+

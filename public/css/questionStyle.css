@@ -2,9 +2,45 @@
     margin-right: auto;
     margin-left: auto;
     width: 800px;
+    font-size: 40px;
 }
+.answersWrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+}
+
 .buttonWrapper {
     text-align: center;
+}
+
+.answerFontSize {
+    font-size: 17px
+}
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+    width   : 28px;
+    margin  : 0;
+    padding : 0;
+    opacity : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+    display      : inline-block;
+    margin-left  : -28px;
+    padding-left : 28px;
+    background   : url('../resources/checks.png') no-repeat 0 0;
+    line-height  : 24px;
+}
+
+input[type=checkbox]:not(old):checked + label{
+    background-position : 0 -24px;
+}
+
+input[type=radio]:not(old):checked + label{
+    background-position : 0 -48px;
 }
 
 html, body { margin: 0; padding: 0; }

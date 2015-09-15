@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     autoIncrement = require('mongoose-auto-increment'),
     validate = require('mongoose-validator'),
-    PossibleAnswerSchema = require('./possibleAnswerModel').schema;
+    answerSchema = require('./answerModel').schema;
 var extend = require('mongoose-validator').extend;
 
 extend('isArrayLength', function (val) {
@@ -16,10 +16,9 @@ var possibleAnswersValidator = [
 ];
 
 var questionSchema = new Schema({
-    _id: { type: Schema.Types.ObjectId },
     number: { type: Number, required: true },
     text: { type: String, required: true },
-    possibleAnswers: { type: [PossibleAnswerSchema], required: true, validate: possibleAnswersValidator },
+    possibleAnswers: { type: [answerSchema], required: true, validate: possibleAnswersValidator },
     type: String
 });
 

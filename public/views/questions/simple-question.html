@@ -5,14 +5,13 @@
     <title></title>
 </head>
 <body>
-<div class="container questionDiv">
+<div class="container centerDiv">
     <h1 class="questionWrapper fontColor" style="position: relative; left: 20%">{{ question.text }}</h1>
 
-    <div class="questionWrapper" style="position: relative; left: 20%" ng-repeat="answer in question.possibleAnswers">
-        <div class="radio">
-            <label>
-                <input type="radio" name="optradio" ng-click="answerSelected(answer)"><span class="fontColor">{{ answer.text }}</span>
-            </label>
+    <div class="answersWrapper" style="position: relative; left: 20%" ng-repeat="answer in question.possibleAnswers">
+        <div>
+            <input type="radio" id="answerRadio" name="answerRadio" ng-click="answerSelected(answer)">
+            <label for="answerRadio" class="fontColor answerFontSize"><span><span></span></span>{{ answer.text }}</label>
         </div>
     </div>
 
