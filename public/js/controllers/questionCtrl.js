@@ -7,10 +7,14 @@ angular.module('lfv.controllers').controller('questionController', ['$scope', 'q
             $scope.question = data;
         });
 
+    function isQuestionWithNextButton() {
+        return $scope.question.type !== 'Simple';
+    }
+
     $scope.answerSelected = function(answer) {
         $scope.selectedAnswer = answer;
 
-        if ($scope.question.type === 'YesNo') {
+        if (isQuestionWithNextButton()) {
             $scope.nextQuestion();
         }
     };

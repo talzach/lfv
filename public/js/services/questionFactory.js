@@ -8,6 +8,8 @@ angular.module('lfv.services').service('questionFactory', ['Restangular', functi
             initializeYesNoQuestion(question);
         } else if (type === "Simple") {
             initializeSimpleQuestion(question);
+        } else if (type === "Grade") {
+            initializeGradeQuestion(question);
         }
 
         return question;
@@ -18,6 +20,10 @@ angular.module('lfv.services').service('questionFactory', ['Restangular', functi
 
         function initializeYesNoQuestion(question) {
             question.possibleAnswers = [{ text: 'Yes' }, { text: 'No' }];
+        }
+
+        function initializeGradeQuestion(question) {
+            question.possibleAnswers = [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }, { text: '5' }];
         }
     };
 }]);

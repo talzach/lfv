@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="form-group">
+    <label for="question">Question:</label>
+    <br>
+    <input type="text" ng-model="question.text" class="form-control textInput" id="question">
+</div>
+
+<div ng-repeat="answer in question.possibleAnswers" class="form-group">
+    <h3 id="answer">{{ answer.text }}:</h3>
+    <button class="btn btn-danger btn-xs" style="margin: 5px 0 0 0" ng-click="showRestricted(answer, $index)">Restricted Questions</button>
+</div>
+
+</body>
+</html>

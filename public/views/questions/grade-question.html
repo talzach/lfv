@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="centerDiv text-center">
+    <h1 class="questionWrapper fontColor">{{ question.text }}</h1>
+    <br>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="First group">
+        <button type="button" class="btn btn-success" ng-repeat="answer in question.possibleAnswers" ng-click="answerSelected(answer)">
+            {{ answer.text }}
+        </button>
+    </div>
+</div>
+</body>
+</html>

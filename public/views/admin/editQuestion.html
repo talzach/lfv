@@ -32,6 +32,7 @@
             <ul id="questionTypeDropDown" class="dropdown-menu" ng-click="changeQuestionType()">
                 <li><a href="#">Simple</a></li>
                 <li><a href="#">YesNo</a></li>
+                <li><a href="#">Grade</a></li>
             </ul>
         </div>
     </div>
@@ -43,6 +44,7 @@
             <div ng-switch on="question.type">
                 <div edit-simple-question ng-switch-when="Simple"></div>
                 <div edit-yes-no-question ng-switch-when="YesNo"></div>
+                <div edit-grade-question ng-switch-when="Grade"></div>
             </div>
 
             <div class="buttonWrapper" ng-show="question.type !== undefined">

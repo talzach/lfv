@@ -6,9 +6,9 @@ angular.module('lfv.services').factory('questionService',
             get: function (number) {
                 return Restangular.one('api/questions', number).get();
             },
-            getNext: function (number, restricted) {
+            getNext: function (currentQuestionNumber, restrictedList) {
                 return Restangular.one('api/questions/next')
-                    .customPOST({restrictedQuestions: restricted, lastQuestionNumber: number});
+                    .customPOST({restrictedQuestions: restrictedList, lastQuestionNumber: currentQuestionNumber});
             },
             getAll: function() {
                 var questions = Restangular.all('api/questions');

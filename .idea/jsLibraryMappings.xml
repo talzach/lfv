@@ -3,6 +3,5 @@
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{LocationForVacation node_modules}" />
     <file url="PROJECT" libraries="{Node.js v0.12.5 Core Modules, angular-http-auth-DefinitelyTyped, angular-odata-resources-DefinitelyTyped, angularjs-DefinitelyTyped, body-parser-DefinitelyTyped, express-DefinitelyTyped, jQuery-2.0.0, mongodb-DefinitelyTyped, restangular-DefinitelyTyped}" />
-    <includedPredefinedLibrary name="Node.js Globals" />
   </component>
 </project>
