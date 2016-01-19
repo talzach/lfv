@@ -10,6 +10,10 @@ angular.module('lfv.services').factory('questionService',
                 return Restangular.one('api/questions/next')
                     .customPOST({restrictedQuestions: restrictedList, lastQuestionNumber: currentQuestionNumber});
             },
+            getPrevious: function (currentQuestionNumber, restrictedList) {
+                return Restangular.one('api/questions/next')
+                    .customPOST({restrictedQuestions: restrictedList, lastQuestionNumber: currentQuestionNumber});
+            },
             getAll: function() {
                 var questions = Restangular.all('api/questions');
                 return questions.getList();
