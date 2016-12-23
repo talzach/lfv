@@ -1,6 +1,6 @@
 angular.module('lfv.controllers').controller('restrictedQuestionsCtrl',
-    [ '$scope', 'questionService', '$modalInstance', 'answer', '$window',
-        function ($scope, questionService, $modalInstance, answer, $window) {
+    [ '$scope', 'questionService', '$uibModalInstance', 'answer', '$window',
+        function ($scope, questionService, $uibModalInstance, answer, $window) {
     $scope.answer = jQuery.extend(true, {}, answer);
     $scope.questionToAdd = null;
 
@@ -14,7 +14,7 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl',
     }
 
     $scope.hasRestrictedQuestions = function() {
-        return $scope.answer.restrictedQuestions.length == 0;
+        return $scope.answer.restrictedQuestions && $scope.answer.restrictedQuestions.length == 0;
     };
 
     $scope.removeQuestion = function ($index) {
@@ -28,11 +28,11 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl',
     };
 
     $scope.close = function () {
-        $modalInstance.close($scope.answer);
+        $uibModalInstance.close($scope.answer);
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $uibModalInstance.dismiss('cancel');
     };
 
     $scope.goToQuestion = function (number) {

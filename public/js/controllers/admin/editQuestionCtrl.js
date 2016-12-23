@@ -1,6 +1,6 @@
 angular.module('lfv.controllers').controller('editQuestionController',
-    ['$scope', 'questionService', '$timeout', '$routeParams', '$modal',
-        function ($scope, questionService, $timeout, $routeParams, $modal) {
+    ['$scope', 'questionService', '$timeout', '$routeParams', '$uibModal',
+        function ($scope, questionService, $timeout, $routeParams, $uibModal) {
 
             if ($routeParams.number) {
                 $scope.pageTitle = 'Edit Question Number ' + $routeParams.number;
@@ -54,7 +54,7 @@ angular.module('lfv.controllers').controller('editQuestionController',
             };
 
             $scope.showRestricted = function (answer, $index) {
-                var modalInstance = $modal.open({
+                var modalInstance = $uibModal.open({
                     animation: false,
                     templateUrl: '../../../dialogs/restrictedQuestions.html',
                     controller: 'restrictedQuestionsCtrl',

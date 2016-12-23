@@ -2,7 +2,7 @@
 
 // models =================================================
 var express        = require('express');
-    var bodyParser     = require('body-parser');
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose'),
     autoIncrement = require('mongoose-auto-increment');

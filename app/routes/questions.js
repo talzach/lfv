@@ -2,15 +2,15 @@ var questionModel = require('./../models/questionModel');
 
 exports.get = function (req, res) {
     questionModel.find({number: req.params.number})
-        .populate('possibleAnswers.restrictedQuestions')
-        .exec(function (err, questions) {
-            if (err) {
-                console.log(err);
-                return res.status(400).send({error: err});
-            }
+    .populate('possibleAnswers.restrictedQuestions')
+    .exec(function (err, questions) {
+        if (err) {
+            console.log(err);
+            return res.status(400).send({error: err});
+        }
 
-            res.json(questions[0]);
-        });
+        res.json(questions[0]);
+    });
 };
 
 exports.getNext = function (req, res) {
