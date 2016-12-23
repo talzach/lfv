@@ -44,7 +44,7 @@ angular.module('lfv.controllers').controller('questionController', ['$scope', 'q
 
     function addRestrictedFromSelectedAnswer() {
 
-        userRestrictedQuestionIds[$scope.question.number] = getSelectedAnswerRestrictedIds();
+        //userRestrictedQuestionIds[$scope.question.number] = getSelectedAnswerRestrictedIds();
 
 
 
