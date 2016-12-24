@@ -13,13 +13,34 @@ exports.get = function (req, res) {
     });
 };
 
-exports.getNext = function (req, res) {
+var getNext = function (req, res, numberOnly) {
     questionModel.where('_id').nin(req.body.restrictedQuestions)
         .where('number').gt(req.body.lastQuestionNumber)
         .sort('number')
         .findOne(function (err, question) {
-            return res.send(question);
+            if (err) {
+                return res.status(400).send({error: err});
+            }
+
+            if (question) {
+                if (numberOnly) {
+                    return res.json(question.number);
+                } else {
+                    return res.send(question);
+                }
+            } else {
+                return res.status(400).send({error: err});
+            }
         });
+};
+
+exports.getNext = function (req, res) {
+    return getNext(req, res);
+};
+
+
+exports.getNextNumber = function (req, res) {
+    return getNext(req, res, true);
 };
 
 exports.update = function (req, res) {

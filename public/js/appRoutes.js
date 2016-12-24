@@ -6,7 +6,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'mainController'
         })
 
-        .when('/question', {
+        .when('/question/:number', {
             templateUrl: 'views/questions/question.html',
             controller: 'questionController'
         });

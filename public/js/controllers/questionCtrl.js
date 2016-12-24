@@ -1,9 +1,8 @@
-angular.module('lfv.controllers').controller('questionController', ['$scope', 'questionService', function ($scope, questionService) {
-    var userRestrictedQuestionIds = [];
+angular.module('lfv.controllers').controller('questionController',
+    ['$scope', 'questionService', '$location', '$routeParams', function ($scope, questionService, $location, $routeParams) {
+
     $scope.selectedAnswer = null;
-    GetFirstQuestion();
-    //var dictFactory = new DictionaryFactory();
-    //var myDict = dictFactory.New();
+    GetQuestion();
 
     //region Scope Functions
 
@@ -18,21 +17,27 @@ angular.module('lfv.controllers').controller('questionController', ['$scope', 'q
     $scope.nextQuestion = function () {
         if ($scope.selectedAnswer) {
 
-            var userRestrictedQuestionIds = addRestrictedFromSelectedAnswer();
-            questionService.getNext($scope.question.number, userRestrictedQuestionIds).then(
-                function (data) {
-                    $scope.question = data;
-                    $scope.selectedAnswer = null;
+            addRestrictedFromSelectedAnswer();
+            questionService.getNextNumber($scope.question.number, questionService.getUserRestrictedQuestionIds()).then(
+                function (nextQuestionNumber) {
+                    $location.path("/question/" + nextQuestionNumber);
+                },
+                function (response) {
+                    $location.path("/question");
                 });
         }
+    };
+
+    $scope.previousQuestion = function() {
+
     };
 
     //endregion Scope Functions
 
     //region Private Functions
 
-    function GetFirstQuestion() {
-        questionService.get(1).then(
+    function GetQuestion() {
+        questionService.get($routeParams.number).then(
             function (data) {
                 $scope.question = data;
             });
@@ -43,18 +48,13 @@ angular.module('lfv.controllers').controller('questionController', ['$scope', 'q
     }
 
     function addRestrictedFromSelectedAnswer() {
-
-        //userRestrictedQuestionIds[$scope.question.number] = getSelectedAnswerRestrictedIds();
-
-
-
         if ($scope.selectedAnswer.restrictedQuestions) {
-            userRestrictedQuestionIds = userRestrictedQuestionIds.concat(
+            questionService.setUserRestrictedQuestionIds(questionService.getUserRestrictedQuestionIds().concat(
                 getSelectedAnswerRestrictedIds()
-            );
+            ));
         }
 
-        return userRestrictedQuestionIds;
+        return questionService.getUserRestrictedQuestionIds();
     }
 
     function getSelectedAnswerRestrictedIds() {
