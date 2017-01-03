@@ -1,53 +1,50 @@
-angular.module('lfv.controllers').controller('questionsManagerController', ['$scope', '$location', 'questionService', 'orderByFilter',
+angular.module('lfv.controllers').controller('questionsManagerController',
+    ['$scope', '$location', 'questionService', 'orderByFilter',
     function ($scope, $location, questionService, orderByFilter) {
         questionService.getAll().then(
-            function (allQuestions) {
+            allQuestions => {
                 $scope.allQuestions = allQuestions;
                 $scope.allQuestions = orderByFilter($scope.allQuestions, ['number']);
                 saveQuestions();
             },
-            function (response) {
+            response => {
                 $scope.serverErrors = response.data.errors;
                 $scope.IsError = true;
             });
 
         function saveQuestions() {
             if ($scope.allQuestions) {
-                for (var i = 0; i < $scope.allQuestions.length; i++) {
+                for (let i = 0; i < $scope.allQuestions.length; i++) {
                     $scope.allQuestions[i].number = i + 1;
                     questionService.save($scope.allQuestions[i]);
                 }
             }
         }
 
-        $scope.createNew = function () {
-            $location.path("/admin/newQuestion");
-        };
+        $scope.createNew = () => $location.path("/admin/newQuestion");
 
-        $scope.editQuestion = function (question) {
-            $location.path("/admin/editQuestion/" + question.number);
-        };
+        $scope.editQuestion = question => $location.path("/admin/editQuestion/" + question.number);
 
-        $scope.deleteQuestion = function (question) {
+        $scope.deleteQuestion = question => {
             questionService.delete(question.number).then(
-                function (data) {
+                data => {
                     if (data) {
-                        var index = $scope.allQuestions.indexOf(question);
+                        let index = $scope.allQuestions.indexOf(question);
                         $scope.allQuestions.splice(index, 1);
                     }
                 },
-                function (response) {
+                response => {
                     $scope.serverErrors = response.data.errors;
                     $scope.IsError = true;
                 });
         };
 
-        $scope.removeFailedMessage = function () {
+        $scope.removeFailedMessage = () => {
             $scope.IsError = false;
         };
 
         $scope.sortableOptions = {
-            stop: function(e, ui) {
+            stop: (e, ui) => {
                 saveQuestions();
             },
             axis: 'y'

@@ -1,12 +1,13 @@
 angular.module('lfv.controllers').controller('questionController',
-    ['$scope', 'questionService', '$location', '$routeParams', function ($scope, questionService, $location, $routeParams) {
+    ['$scope', 'questionService', '$location', '$routeParams',
+        function ($scope, questionService, $location, $routeParams) {
 
     $scope.selectedAnswer = null;
     GetQuestion();
 
     //region Scope Functions
 
-    $scope.answerSelected = function(answer) {
+    $scope.answerSelected = answer => {
         $scope.selectedAnswer = answer;
 
         if (isQuestionWithNextButton()) {
@@ -14,21 +15,21 @@ angular.module('lfv.controllers').controller('questionController',
         }
     };
 
-    $scope.nextQuestion = function () {
+    $scope.nextQuestion = () => {
         if ($scope.selectedAnswer) {
 
             addRestrictedFromSelectedAnswer();
             questionService.getNextNumber($scope.question.number, questionService.getUserRestrictedQuestionIds()).then(
-                function (nextQuestionNumber) {
+                nextQuestionNumber => {
                     $location.path("/question/" + nextQuestionNumber);
                 },
-                function (response) {
+                response => {
                     $location.path("/question");
                 });
         }
     };
 
-    $scope.previousQuestion = function() {
+    $scope.previousQuestion = () => {
 
     };
 
@@ -37,10 +38,7 @@ angular.module('lfv.controllers').controller('questionController',
     //region Private Functions
 
     function GetQuestion() {
-        questionService.get($routeParams.number).then(
-            function (data) {
-                $scope.question = data;
-            });
+        questionService.get($routeParams.number).then(data => $scope.question = data);
     }
 
     function isQuestionWithNextButton() {
@@ -58,11 +56,7 @@ angular.module('lfv.controllers').controller('questionController',
     }
 
     function getSelectedAnswerRestrictedIds() {
-        return $scope.selectedAnswer.restrictedQuestions.map(
-            function (x) {
-                return x._id
-            }
-        );
+        return $scope.selectedAnswer.restrictedQuestions.map(x => x._id);
     }
 
     //endregion Functions

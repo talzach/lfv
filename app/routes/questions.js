@@ -1,4 +1,4 @@
-var questionModel = require('./../models/questionModel');
+let questionModel = require('./../models/questionModel');
 
 exports.get = function (req, res) {
     questionModel.find({number: req.params.number})
@@ -44,10 +44,10 @@ exports.getNextNumber = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    var query = {'_id': req.body._id};
+    let query = {'_id': req.body._id};
     questionModel.findOneAndUpdate(query, req.body, {upsert: true, new: true})
         .populate('possibleAnswers.restrictedQuestions')
-        .exec(function (err, question) {
+        .exec((err, question) => {
             if (err) {
                 console.log(err);
                 return res.status(500).send({error: err});
@@ -58,9 +58,9 @@ exports.update = function (req, res) {
         });
 };
 
-exports.getAll = function (req, res) {
+exports.getAll = (req, res) => {
     questionModel.find(
-        function (err, questions) {
+        (err, questions) => {
             if (err) {
                 return res.status(400).send({error: err});
             }
@@ -69,8 +69,8 @@ exports.getAll = function (req, res) {
         });
 };
 
-exports.create = function (req, res) {
-    questionModel(req.body).save(function (err, question) {
+exports.create = (req, res) => {
+    questionModel(req.body).save((err, question) => {
         if (!err) {
             console.log("Question added");
             res.send(question);
@@ -82,7 +82,7 @@ exports.create = function (req, res) {
     });
 };
 
-exports.remove = function (req, res) {
+exports.remove = (req, res) => {
     questionModel.remove({number: req.params.number}, function (err) {
         if (err) {
             console.log(err);

@@ -1,6 +1,6 @@
 angular.module('lfv.services').service('questionFactory', ['Restangular', function (Restangular) {
-    this.createQuestion = function (type) {
-        var question = Restangular.one('api/questions');
+    this.createQuestion = type => {
+        let question = Restangular.one('api/questions');
             question.number = NaN;
             question.type = type;
 

@@ -1,8 +1,8 @@
-var mongoose = require('mongoose'),
+let mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     autoIncrement = require('mongoose-auto-increment');
 
-var answerSchema = new Schema({
+let answerSchema = new Schema({
     number: Number,
     text: String,
     restrictedQuestions: [{ type: Schema.Types.ObjectId, ref: 'Question' }]

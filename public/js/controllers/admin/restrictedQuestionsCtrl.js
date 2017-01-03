@@ -4,38 +4,35 @@ angular.module('lfv.controllers').controller('restrictedQuestionsCtrl',
     $scope.answer = jQuery.extend(true, {}, answer);
     $scope.questionToAdd = null;
 
-    questionService.getAll().then(
-        function (allQuestions) {
-                $scope.allQuestions = allQuestions;
-        });
+    questionService.getAll().then(allQuestions => $scope.allQuestions = allQuestions);
 
     function loaded() {
         document.getElementById("restrictedQuestionSelector").focus();
     }
 
-    $scope.hasRestrictedQuestions = function() {
+    $scope.hasRestrictedQuestions = () => {
         return $scope.answer.restrictedQuestions && $scope.answer.restrictedQuestions.length == 0;
     };
 
-    $scope.removeQuestion = function ($index) {
+    $scope.removeQuestion = $index => {
         $scope.answer.restrictedQuestions.splice($index, 1);
     };
 
-    $scope.addRestricted = function () {
+    $scope.addRestricted = () => {
         if ($scope.answer.restrictedQuestions.indexOf($scope.questionToAdd.originalObject) == -1) {
             $scope.answer.restrictedQuestions.push($scope.questionToAdd.originalObject);
         }
     };
 
-    $scope.close = function () {
+    $scope.close = () => {
         $uibModalInstance.close($scope.answer);
     };
 
-    $scope.cancel = function () {
+    $scope.cancel = () => {
         $uibModalInstance.dismiss('cancel');
     };
 
-    $scope.goToQuestion = function (number) {
+    $scope.goToQuestion = (number) => {
         $window.open("/admin/editQuestion/" + number, '_blank');
     };
 }]);

@@ -1,55 +1,49 @@
 angular.module('lfv.services').factory('questionService',
     ['Restangular', 'questionFactory',
         function (Restangular, questionFactory) {
-            var data = {
+            let data = {
                 userRestrictedQuestionIds: [],
                 previousQuestions: []
             };
 
             return {
-                get: function (number) {
-                    return Restangular.one('api/questions', number).get().then(
-                        function (data) {
-                            return data.plain();
-                        }
-                    );
+                get: number => {
+                    return Restangular.one('api/questions', number).get().then(data => data.plain());
                 },
-                getNext: function (currentQuestionNumber, restrictedList) {
+                getNext: (currentQuestionNumber, restrictedList) => {
                     return Restangular.one('api/questions/next')
                         .customPOST({restrictedQuestions: restrictedList, lastQuestionNumber: currentQuestionNumber}).then(
-                            function (data) {
-                                return data.plain();
-                            }
+                            data => data.plain()
                         );
                 },
-                getNextNumber: function (currentQuestionNumber, restrictedList) {
+                getNextNumber: (currentQuestionNumber, restrictedList) => {
                     return Restangular.one('api/questions/nextNumber')
                         .customPOST({restrictedQuestions: restrictedList, lastQuestionNumber: currentQuestionNumber});
                 },
-                getAll: function() {
-                    var questions = Restangular.all('api/questions');
+                getAll: () => {
+                    let questions = Restangular.all('api/questions');
                     return questions.getList().then(
                         function (data) {
                             return data.plain();
                         }
                     );
                 },
-                create: function (type) {
+                create: type => {
                     return questionFactory.createQuestion(type);
                 },
-                save: function (question) {
+                save: question => {
                     return question.save();
                 },
-                delete: function (number) {
+                delete: number => {
                     return Restangular.one('api/questions', number).remove();
                 },
-                getUserRestrictedQuestionIds: function () {
+                getUserRestrictedQuestionIds: () => {
                     return data.userRestrictedQuestionIds;
                 },
-                setUserRestrictedQuestionIds: function (ids) {
+                setUserRestrictedQuestionIds: ids => {
                     data.userRestrictedQuestionIds = ids;
                 },
-                previousQuestions: function () {
+                previousQuestions: () => {
                     return data.previousQuestions;
                 }
             };
